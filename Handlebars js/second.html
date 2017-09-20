@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="handlebars.min.js"></script>
+</head>
+
+<body>
+
+	<div id="showData"></div>
+
+  <script id="quote-template" type="text/x-handlebars-template">
+	{{hello}}
+	</script>
+	<script type="text/javascript">
+		
+  var quoteInfo = document.getElementById("quote-template").innerHTML;
+		var template=Handlebars.compile(quoteInfo);
+
+		Handlebars.registerHelper("sayHello", function(options){
+    switch(options.data.lang){
+      case "spanish":
+        return "Hola";
+        break;
+      case "french":
+        return "Bonjour";
+        break;
+      default:
+        return "Hello";
+    }
+  });
+
+		var showData = template({
+			data{
+				lang:"spanish"
+			}
+		});
+		document.getElementById('showData').innerHTML+=showData;
+	</script>
+</body>
+</html>

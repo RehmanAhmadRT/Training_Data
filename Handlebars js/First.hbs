@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Handlebar js</title>
+	<script src="handlebars.min.js"></script>
+
+	
+</head>
+
+<body>
+	<div id="showData"></div>
+
+	<script type="text/javascript">
+		var myData="<p>My name is {{name}} and i am a software engineer at {{location}}";
+		var template=Handlebars.compile(myData);
+		var data=template({name:"Abdul",location: "Rolustech"});
+		document.getElementById('showData').innerHTML+=data;
+	</script>
+</body>
+</html>
